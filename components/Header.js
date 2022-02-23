@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     headerTitle: {
         marginTop: 60,
         color: Colors.accent,
-        fontSize: 30,
-        fontWeight: 'bold',
+        fontSize: 40,
+        fontFamily: 'Shizuru',
         textAlign: 'center',
     }
 })

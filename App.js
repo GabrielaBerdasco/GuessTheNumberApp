@@ -1,13 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 import Header from './components/Header';
 import GameScreen from './screen/GameScreen';
 import StartGameScreen from './screen/StartGameScreen';
 
 export default function App() {
 
+  const [loaded, error] = useFonts({
+    Shizuru: require('./assets/fonts/Shizuru-Regular.ttf')
+  })
   const [userNumber, setUserNumber] = useState()
+
+  if (!loaded) return <AppLoading />
 
   const handleStartGame = (selectedNumber) => {
     setUserNumber(selectedNumber)

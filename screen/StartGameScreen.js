@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableWithoutFeedback, Keyboard, StyleSheet } from "react-native";
+import { color } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Input from "../components/Input";
@@ -70,8 +71,10 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     title:{
-        fontSize: 22,
         margin: 10,
+        fontSize: 30,
+        fontFamily: 'Shizuru',
+        color: Colors.primary
     },
     inputContainer:{
         width:300,
