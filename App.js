@@ -6,13 +6,15 @@ import AppLoading from 'expo-app-loading';
 import Header from './components/Header';
 import GameScreen from './screen/GameScreen';
 import StartGameScreen from './screen/StartGameScreen';
+import GameOverScreen from './screen/GameOverScreen';
 
 export default function App() {
 
-  const [loaded, error] = useFonts({
+  const [loaded] = useFonts({
     Shizuru: require('./assets/fonts/Shizuru-Regular.ttf')
   })
   const [userNumber, setUserNumber] = useState()
+  const [userRounds, setUserRounds] = useState()
 
   if (!loaded) return <AppLoading />
 
@@ -20,10 +22,18 @@ export default function App() {
     setUserNumber(selectedNumber)
   }
 
+  const handleGameOver = rounds => {
+    setUserRounds(rounds)
+  }
+
   let content = <StartGameScreen onStartGame={handleStartGame} />
 
   if (userNumber) {
-    content = <GameScreen userNumber={userNumber} />
+    content = <GameScreen userNumber={userNumber} onGameOver={handleGameOver} />
+  }
+
+  if (userRounds) {
+    content = <GameOverScreen userRounds={userRounds} userNumber={userNumber} />
   }
 
   return (
